@@ -1,5 +1,17 @@
 extends Actor
 
+export var bullet_speed = 1000
+var bullet = preload("res://source/Weapon/bullet.tscn")
+
+func _process(delta):
+	look_at(get_global_mouse_position())
+	if Input.is_action_just_pressed("fire"):
+		var bullet_instance = bullet.instance()
+		bullet_instance.position = get_global_position()
+		bullet_instance.rotation_degrees = rotation_degrees
+		bullet_instance.apply_impulse(Vector2(), Vector2(bullet_speed,0).rotated(rotation))
+		get_tree().get_root().add_child(bullet_instance)
+		
 func _physics_process(delta: float) -> void:
 	var is_jumping: = Input.is_action_just_pressed("jump") and velocity.y < 0.0
 	var direction := get_direction()
