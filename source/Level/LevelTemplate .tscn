@@ -50,5 +50,3 @@ gravity = 2000.0
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
 position = Vector2( 800, 512 )
 speed = Vector2( 300, 1000 )
-gravity = 5000.0
-velocity = Vector2( 0, 0 )

@@ -21,7 +21,7 @@ func _on_Timer_timeout():
 		var enemy = enemyscene.instance()
 		var position = get_node("Player").global_transform.origin
 		rand.randomize()
-		var x = rand.randf_range(position.x-200, position.x+500.0) # x-range
+		var x = rand.randf_range(position.x, position.x+1500.0) # x-range
 		enemy.position.x = x
 		enemy.position.y =-1.0
 		add_child(enemy)

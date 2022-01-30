@@ -54,5 +54,6 @@ modulate = Color( 0.14902, 0.678431, 0.964706, 1 )
 position = Vector2( 0, 34 )
 shape = SubResource( 3 )
 
+[connection signal="screen_exited" from="VisibilityEnabler2D" to="." method="_on_VisibilityEnabler2D_screen_exited"]
 [connection signal="body_entered" from="StompDetector" to="." method="_on_StompDetector_body_entered"]
 [connection signal="body_entered" from="BulletDetector" to="." method="_on_StompDetector_body_entered"]
