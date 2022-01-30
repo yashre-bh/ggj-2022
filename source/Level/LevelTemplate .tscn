@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://source/Actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tileset.png" type="Texture" id=2]
 [ext_resource path="res://source/Actors/Enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://source/Actions/EnemySpawner.gd" type="Script" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 80, 0, 80, 80, 0, 80 )
@@ -31,6 +32,7 @@ points = PoolVector2Array( 0, 0, 80, 0, 80, 80, 0, 80 )
 0/z_index = 0
 
 [node name="LevelTemplate" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 2 )
@@ -43,7 +45,10 @@ tile_data = PoolIntArray( 65532, 0, 0, 24, 0, 0, 131068, 0, 0, 65560, 0, 0, 1966
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 240, 144 )
 speed = Vector2( 800, 1000 )
+gravity = 2000.0
 
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
 position = Vector2( 800, 512 )
 speed = Vector2( 300, 1000 )
+gravity = 5000.0
+velocity = Vector2( 0, 0 )
